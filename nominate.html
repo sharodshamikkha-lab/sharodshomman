@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nominate — Sharod Samikkha | মনোনয়ন</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Space+Grotesk:wght@300;400;500;600&family=Tiro+Bangla&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<style>.page-hero{padding:72px 0 40px}.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}@media(max-width:800px){.how{grid-template-columns:1fr}}.how div{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:26px}.how b{font-family:'Yeseva One';font-weight:400;font-size:20px;display:block;margin-bottom:6px}.how p{font-size:14px;color:#5A4C4A}.how span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--maroon)}</style>
+</head>
+<body>
+<div class="topbar">SHAROD SAMIKKHA — NOMINATE — PUBLIC VOTE COUNTS 30%</div>
+<nav><div class="nav-in">
+<a class="brand" href="index.html"><img class="brand-mark-img" src="assets/logo.png" alt="Sharod Samikkha logo"/><div class="brand-name">Sharod Samikkha<small>শারদ সমীক্ষা</small></div></a>
+<div class="links"><a href="index.html">Home</a><a href="about.html">About us</a><a href="method.html">Method</a><a href="journal.html">Journal</a></div>
+<a class="btn-ghost" href="nominate.html">Nominate →</a>
+</div></nav>
+
+<div class="wrap page-hero">
+<div class="vote-grid" style="grid-template-columns:1fr;max-width:760px">
+<form class="form-card" id="vf"><h3>Nomination form</h3><p style="color:#6B5D4F;font-size:14.5px;margin-top:6px">One detailed note beats ten "awesome pandal" comments.</p>
+<div class="frow"><div><label>Your name</label><input name="name" required placeholder="e.g. Mou Banerjee"/></div><div><label>Phone / email (for verification)</label><input name="contact" required placeholder="e.g. 98XXX XXXXX"/></div></div>
+<div class="frow"><div><label>Puja name + lane</label><input name="puja" required placeholder="e.g. Jodhpur Park, lane beside bazaar"/></div></div>
+<div class="frow"><div><label>Category</label><select name="category"><option>Best Theme</option><option>Best Idol</option><option>Best Lighting</option><option>Most Sustainable</option><option>Best Tradition</option><option>People's Choice</option></select></div><div><label>Artisan name (if you asked)</label><input name="artisan" placeholder="e.g. Idol by —, lights by —"/></div></div>
+<label>What did you see? (2–4 lines, specific)</label><textarea name="observation" required placeholder="Queue moved slowly but volunteers gave water to seniors. Idol's eyes followed you. Sound harsh near speaker 2..."></textarea>
+<button class="btn-dark" style="margin-top:18px;width:100%;justify-content:center" type="submit">Submit nomination</button>
+<p id="vm" style="display:none;margin-top:12px;font-size:14px;color:var(--maroon)">Dhonnobad. We read every entry on Sunday mornings over cha. — Tumpa</p>
+</form>
+</div>
+</div>
+
+<footer><div class="wrap">
+<div class="f-big">শারদ সমীক্ষা</div>
+<div class="f-grid"><div><h5>Sharod Samikkha</h5><p>Your notes shape 30% of every honour.</p></div><div><h5>Explore</h5><a href="index.html">Home</a><a href="about.html">About us</a><a href="method.html">Method</a><a href="journal.html">Journal</a></div><div><h5>Honours</h5><a href="method.html">Best Theme</a><a href="method.html">Best Idol</a><a href="method.html">Sustainability</a></div><div><h5>Contact</h5><a href="nominate.html">Nominate</a><p>sharodshamikkha@gmail.com</p></div></div>
+<div class="f-bottom"><span>© 2026 Sharod Samikkha</span><span>Courtesy — Arijit Adhikary</span><span>Observe · Document · Honour</span></div>
+</div></footer>
+<script>
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbw8JpcnnHL0IpAFSPE-huDVbRsCf6tVhovxsnEVq7pDS7il_FYCEaLY7ByeapTPRJaB/exec';
+document.getElementById('vf').onsubmit = async (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const msg = document.getElementById('vm');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  const fd = new FormData(e.target);
+  const data = Object.fromEntries(fd.entries());
+  data.timestamp = new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'});
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    msg.style.display = 'block';
+    msg.style.color = 'var(--maroon)';
+    msg.textContent = 'Dhonnobad. We read every entry on Sunday mornings over cha. — Tumpa';
+    btn.textContent = 'Recorded ✓ — Dhonnobad';
+    e.target.reset();
+  } catch (err) {
+    msg.style.display = 'block';
+    msg.style.color = '#c0392b';
+    msg.textContent = 'Something went wrong — please try again.';
+    btn.disabled = false;
+    btn.textContent = 'Submit nomination';
+  }
+};
+</script>
+</body></html>
