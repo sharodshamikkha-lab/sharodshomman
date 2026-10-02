@@ -67,6 +67,17 @@ nav{position:absolute;top:40px;left:0;right:0;z-index:30;background:transparent;
 .fhero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--deep);color:#FFF6DE}
 .fhero-credit{position:absolute;right:24px;bottom:18px;z-index:3;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,246,222,.8)}
 @media(max-width:900px){.story-grid{grid-template-columns:1fr!important}}
+.evolution{background:#1A0C0B;border-top:1px solid rgba(193,154,58,.4);border-bottom:1px solid rgba(193,154,58,.4)}
+.evo-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:32px}
+@media(max-width:900px){.evo-grid{grid-template-columns:1fr}}
+.evo-side{display:grid;grid-template-columns:1fr 340px;gap:44px;margin-top:32px;align-items:start}
+@media(max-width:900px){.evo-side{grid-template-columns:1fr}}
+.evo-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:44px}
+@media(max-width:700px){.evo-steps{grid-template-columns:1fr}}
+.evo-steps div{border-top:2px solid var(--gold);padding:16px 0 0}
+.evo-steps span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2)}
+.evo-steps b{font-family:'Yeseva One',serif;font-weight:400;font-size:21px;color:#FFF3D0;display:block;margin:8px 0 6px}
+.evo-steps p{font-size:13.5px;color:#B9A892}
 .fhero-media{position:absolute;inset:0}
 .fhero-media video{width:100%;height:100%;object-fit:cover}
 .fhero-grade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(24,10,9,.55) 0%, rgba(24,10,9,.25) 35%, rgba(24,10,9,.35) 60%, rgba(18,6,6,.88) 100%)}
@@ -272,15 +283,23 @@ footer{background:#120606;color:#CFC0A6;padding:72px 0 26px}
 </div>
 </div></section>
 
-<section style="background:var(--cream);border-top:1px solid var(--line)"><div class="wrap">
-<div class="label">Explore</div>
-<h2 class="title reveal">Go deeper on each page.</h2>
-<div class="j-grid">
-<article class="j reveal"><div class="j-top" style="background:#180A09;color:#E7C873">কথা</div><div class="j-body"><small>About us</small><h4>Who we are and why we walk</h4><p>Team, values and what we will never do.</p><p style="margin-top:12px"><a href="about.html" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">About us</a></p></div></article>
-<article class="j reveal"><div class="j-top" style="background:#E9DCC0;color:#3A1512">নিয়ম</div><div class="j-body"><small>Method</small><h4>140-point rubric, open scores</h4><p>How we observe, score and publish.</p><p style="margin-top:12px"><a href="method.html" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">Method</a></p></div></article>
-<article class="j reveal"><div class="j-top" style="background:#6E1B1B;color:#F5DE97">ভোট</div><div class="j-body"><small>Nominate</small><h4>Your para, your 30 percent</h4><p>Nominate a puja with a specific note.</p><p style="margin-top:12px"><a href="nominate.html" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">Nominate</a></p></div></article>
+<section class="evolution"><div class="wrap">
+<div class="label reveal" style="color:var(--gold2)">The journey — বিবর্তন</div>
+<h2 class="title reveal" style="color:#FFF6DE">From royal courtyards <span style="color:var(--gold2)">to living canvases.</span></h2>
+<div class="evo-side">
+<div class="reveal" style="display:grid;gap:18px;font-size:16.5px;line-height:1.85;color:#D8CBB8">
+<p>The story of Durga Puja in Bengal is a story of change, shaped by generations of devotion, culture and creativity. What began as intimate worship within royal and zamindar households gradually found a wider place in community life, with the rise of <b style="color:#F5DE97">barowari and sarbojanin pujas</b> making the festival increasingly collective and accessible.</p>
+<p>Over time, the pandal evolved from a temporary shelter for the idol into an important space for artistic expression. In the early years, the focus was largely on the rituals, the traditional idol and the celebration itself. As community participation grew, so did the ambition to create something distinctive.</p>
+<p>By the late twentieth century, many pujas began moving towards <b style="color:#F5DE97">theme-based presentations</b>, transforming the pandal into a canvas for architecture, sculpture, painting, social ideas and storytelling. Today, a theme puja may recreate a piece of history, explore a social issue, celebrate a traditional craft, reinterpret mythology or create an entirely new artistic world.</p>
+<p>This evolution from <b style="color:#F5DE97">traditional puja to theme puja</b> reflects the changing nature of Bengal itself — while the devotion remains at its core, the way we express it continues to evolve. <b style="color:#FFF3D0">Sharod Samikkha</b> looks at this journey not simply as a competition between pandals, but as a living story of how art, culture, tradition and contemporary creativity have come together to shape the Durga Puja we experience today.</p>
 </div>
-<p style="margin-top:20px"><a href="journal.html" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">Visit the Journal</a></p>
+<figure class="reveal" style="margin:0"><img src="assets/pic%202.jpeg" alt="Traditional bonedi Durga Puja with chandelier" style="width:100%;height:auto;border-radius:18px;border:1px solid rgba(193,154,58,.4);display:block"/><figcaption style="margin-top:10px;font-size:12.5px;letter-spacing:.08em;color:#B9A892">A traditional household puja — chandeliers, arches and the ekchala idol</figcaption></figure>
+</div>
+<div class="evo-steps reveal">
+<div><span>Then</span><b>Bonedi courtyards</b><p>Intimate worship in royal and zamindar households.</p></div>
+<div><span>Soon</span><b>Barowari streets</b><p>Community pujas make the festival collective.</p></div>
+<div><span>Now</span><b>Theme pandals</b><p>Architecture, craft and stories in bamboo and clay.</p></div>
+</div>
 </div></section>
 
 <footer><div class="wrap">
